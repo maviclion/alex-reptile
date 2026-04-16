@@ -1,14 +1,38 @@
 [
   {
-    "name": "샘플 개체",
+    "name": "모카",
     "morph": "달마시안",
     "gender": "female",
-    "age": "2024년생",
-    "weight": "25g",
-    "hatch": "2024.06",
-    "price": 150000,
-    "desc": "건강하게 잘 자란 암컷 달마시안 개체입니다.\n사료 잘 먹고 핸들링에도 잘 적응되어 있어요.",
-    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Correlophus_ciliatus_-_Crested_gecko_-_Wikimedia_Commons.jpg/640px-Correlophus_ciliatus_-_Crested_gecko_-_Wikimedia_Commons.jpg",
+    "age": "2022년생",
+    "weight": "35g",
+    "hatch": "",
+    "price": 100000,
+    "desc": "점은 작지만 다양한 스팟(블랙, 칠리, 그린)을 가지고 있는 아이입니다.\n턱에 약간 부정교합있지만, 식성이 좋아 잘 먹습니다.\n메이팅하면 바로 유정란을 보실 수 있습니다.",
+    "photo": "https://res.cloudinary.com/dzmd8kwjb/image/upload/geckos/20251103_200541_pjf6ck.jpg",
+    "sold": false
+  },
+  {
+    "name": "리아",
+    "morph": "트라이컬러",
+    "gender": "female",
+    "age": "2023년생",
+    "weight": "40g",
+    "hatch": "",
+    "price": 200000,
+    "desc": "바로 시즌이 들어갈 수 있는 이쁜 트라이컬러입니다.",
+    "photo": "https://res.cloudinary.com/dzmd8kwjb/image/upload/geckos/20251101_164159_sxjn3q.jpg",
+    "sold": false
+  },
+  {
+    "name": "벨벳",
+    "morph": "레드바이컬러",
+    "gender": "female",
+    "age": "2022년생",
+    "weight": "40g",
+    "hatch": "",
+    "price": 250000,
+    "desc": "유명 브리더(미드나잇) 다크벅/차콜 부모에서 태어났지만, 레드바이컬러로 태어난 아이입니다.\n베베들은 다크벅으로 나와요.",
+    "photo": "https://res.cloudinary.com/dzmd8kwjb/image/upload/geckos/20251101_172301_j37r4v.jpg",
     "sold": false
   }
 ]
