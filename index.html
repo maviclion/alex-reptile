@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>알렉스 랩타일 — 크레스티드게코 분양</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <img src="logo.png" alt="알렉스 랩타일 로고" class="logo-img" />
+        <div class="logo-text">
+          <span class="logo-title">알렉스 랩타일</span>
+          <span class="logo-sub">Crested Gecko</span>
+        </div>
+      </div>
+      <nav class="header-nav">
+        <a href="index.html" class="nav-link active">분양 중</a>
+        <a href="sold.html" class="nav-link">분양 완료</a>
+        <a href="about.html" class="nav-link">소개</a>
+        <a href="https://open.kakao.com/o/sA5iVCEg" target="_blank" class="nav-kakao">카카오 문의</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 히어로 -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">🦎 건강하게 키운</p>
+      <h1 class="hero-title">크레스티드게코<br/>분양합니다</h1>
+      <p class="hero-desc">직접 번식·사육한 개체들을 책임감 있게 분양해드립니다.<br/>궁금하신 점은 언제든지 오픈카카오톡으로 문의해주세요.</p>
+      <a href="https://open.kakao.com/o/sA5iVCEg" target="_blank" class="btn-kakao">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.674 1.557 5.02 3.93 6.42L5 21l4.027-2.108A11.3 11.3 0 0012 19c5.523 0 10-3.477 10-7.5S17.523 3 12 3z"/></svg>
+        카카오톡으로 문의하기
+      </a>
+    </div>
+    <div class="hero-deco">
+      <div class="deco-circle c1"></div>
+      <div class="deco-circle c2"></div>
+      <div class="deco-leaf">🌿</div>
+    </div>
+  </section>
+
+  <!-- 필터 -->
+  <section class="filter-bar">
+    <div class="filter-inner">
+      <span class="filter-label">필터</span>
+      <button class="filter-btn active" data-filter="all">전체</button>
+      <button class="filter-btn" data-filter="male">수컷</button>
+      <button class="filter-btn" data-filter="female">암컷</button>
+      <button class="filter-btn" data-filter="unknown">미구분</button>
+    </div>
+  </section>
+
+  <!-- 개체 목록 -->
+  <main class="gecko-grid" id="geckoGrid">
+    <!-- JS로 채워짐 -->
+  </main>
+
+  <!-- 빈 상태 -->
+  <div class="empty-state" id="emptyState" style="display:none;">
+    <span class="empty-icon">🦎</span>
+    <p>현재 분양 중인 개체가 없습니다.<br/>곧 새로운 개체를 등록할 예정이에요!</p>
+  </div>
+
+  <!-- 모달 -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box" id="modalBox">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div class="modal-img-wrap">
+        <img id="modalImg" src="" alt="" />
+        <span class="modal-badge" id="modalBadge"></span>
+      </div>
+      <div class="modal-info">
+        <h2 class="modal-name" id="modalName"></h2>
+        <div class="modal-tags" id="modalTags"></div>
+        <div class="modal-desc" id="modalDesc"></div>
+        <div class="modal-price" id="modalPrice"></div>
+        <a href="https://open.kakao.com/o/sA5iVCEg" target="_blank" class="btn-kakao modal-kakao">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.674 1.557 5.02 3.93 6.42L5 21l4.027-2.108A11.3 11.3 0 0012 19c5.523 0 10-3.477 10-7.5S17.523 3 12 3z"/></svg>
+          이 개체 문의하기
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 푸터 -->
+  <footer class="site-footer">
+    <p>© 2025 알렉스 랩타일 · 크레스티드게코 전문 브리더</p>
+    <a href="https://open.kakao.com/o/sA5iVCEg" target="_blank">카카오톡 오픈채팅</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>분양 완료 — 알렉스 랩타일</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <img src="logo.png" alt="알렉스 랩타일 로고" class="logo-img" />
+        <div class="logo-text">
+          <span class="logo-title">알렉스 랩타일</span>
+          <span class="logo-sub">Crested Gecko</span>
+        </div>
+      </div>
+      <nav class="header-nav">
+        <a href="index.html" class="nav-link">분양 중</a>
+        <a href="sold.html" class="nav-link active">분양 완료</a>
+        <a href="about.html" class="nav-link">소개</a>
+        <a href="https://open.kakao.com/o/sA5iVCEg" target="_blank" class="nav-kakao">카카오 문의</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <h2 class="page-title">분양 완료</h2>
+    <p class="page-desc">새 가족을 만난 아이들이에요 🏠</p>
+  </section>
+
+  <main class="gecko-grid sold-grid" id="geckoGrid"></main>
+
+  <div class="empty-state" id="emptyState" style="display:none;">
+    <span class="empty-icon">🦎</span>
+    <p>아직 분양 완료된 개체가 없습니다.</p>
+  </div>
+
+  <footer class="site-footer">
+    <p>© 2025 알렉스 랩타일 · 크레스티드게코 전문 브리더</p>
+    <a href="https://open.kakao.com/o/sA5iVCEg" target="_blank">카카오톡 오픈채팅</a>
+  </footer>
+
+  <script>
+    const SOLD_PAGE = true;
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>

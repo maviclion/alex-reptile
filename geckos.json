@@ -1,0 +1,14 @@
+[
+  {
+    "name": "샘플 개체",
+    "morph": "달마시안",
+    "gender": "female",
+    "age": "2024년생",
+    "weight": "25g",
+    "hatch": "2024.06",
+    "price": 150000,
+    "desc": "건강하게 잘 자란 암컷 달마시안 개체입니다.\n사료 잘 먹고 핸들링에도 잘 적응되어 있어요.",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Correlophus_ciliatus_-_Crested_gecko_-_Wikimedia_Commons.jpg/640px-Correlophus_ciliatus_-_Crested_gecko_-_Wikimedia_Commons.jpg",
+    "sold": false
+  }
+]

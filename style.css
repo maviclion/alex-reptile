@@ -1,0 +1,698 @@
+/* ===========================
+   알렉스 랩타일 — 메인 스타일
+   자연스럽고 따뜻한 테마
+=========================== */
+
+:root {
+  --cream: #faf7f2;
+  --warm-white: #fff9f2;
+  --sand: #e8ddd0;
+  --tan: #c9b49a;
+  --brown: #8b6f47;
+  --dark-brown: #4a3728;
+  --forest: #4a6741;
+  --sage: #7a9e76;
+  --light-sage: #c8ddc5;
+  --moss: #a8bc7b;
+  --accent: #d4873a;
+  --accent-light: #f0c98a;
+  --text: #2c1f12;
+  --text-mid: #6b5544;
+  --text-light: #9e8878;
+  --sold-overlay: rgba(74, 55, 40, 0.6);
+  --radius: 16px;
+  --shadow: 0 4px 24px rgba(74, 55, 40, 0.10);
+  --shadow-hover: 0 12px 40px rgba(74, 55, 40, 0.18);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── 헤더 ── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 247, 242, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--sand);
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--light-sage);
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.logo-title {
+  font-family: 'Nanum Myeongjo', serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--dark-brown);
+}
+
+.logo-sub {
+  font-size: 0.7rem;
+  color: var(--sage);
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-mid);
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: all 0.2s;
+}
+
+.nav-link:hover, .nav-link.active {
+  background: var(--light-sage);
+  color: var(--forest);
+}
+
+.nav-kakao {
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+  background: #FAE100;
+  color: #3A1D1D;
+  padding: 7px 16px;
+  border-radius: 20px;
+  margin-left: 8px;
+  transition: all 0.2s;
+}
+
+.nav-kakao:hover {
+  background: #f0d400;
+  transform: translateY(-1px);
+}
+
+/* ── 히어로 ── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f5ede0 0%, #e8f0e5 100%);
+  padding: 80px 24px 72px;
+  text-align: center;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero-eyebrow {
+  font-size: 0.95rem;
+  color: var(--sage);
+  font-weight: 500;
+  margin-bottom: 12px;
+  letter-spacing: 0.04em;
+}
+
+.hero-title {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  font-weight: 800;
+  color: var(--dark-brown);
+  line-height: 1.25;
+  margin-bottom: 18px;
+}
+
+.hero-desc {
+  font-size: 0.95rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+.btn-kakao {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FAE100;
+  color: #3A1D1D;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 13px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.25s;
+  box-shadow: 0 4px 16px rgba(250, 225, 0, 0.35);
+}
+
+.btn-kakao:hover {
+  background: #f0d400;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(250, 225, 0, 0.45);
+}
+
+.hero-deco { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+
+.deco-circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.18;
+}
+
+.c1 {
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, var(--moss), transparent);
+  top: -80px; right: -60px;
+}
+
+.c2 {
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, var(--accent-light), transparent);
+  bottom: -50px; left: -40px;
+}
+
+.deco-leaf {
+  position: absolute;
+  font-size: 6rem;
+  opacity: 0.08;
+  bottom: 10px;
+  right: 10%;
+  transform: rotate(20deg);
+}
+
+/* ── 필터 바 ── */
+.filter-bar {
+  background: var(--warm-white);
+  border-bottom: 1px solid var(--sand);
+  padding: 14px 24px;
+  position: sticky;
+  top: 68px;
+  z-index: 90;
+}
+
+.filter-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-label {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  margin-right: 4px;
+}
+
+.filter-btn {
+  background: none;
+  border: 1.5px solid var(--sand);
+  color: var(--text-mid);
+  font-size: 0.83rem;
+  font-weight: 500;
+  padding: 5px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  border-color: var(--sage);
+  color: var(--forest);
+}
+
+.filter-btn.active {
+  background: var(--forest);
+  border-color: var(--forest);
+  color: #fff;
+}
+
+/* ── 카드 그리드 ── */
+.gecko-grid {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 24px 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+.gecko-card {
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 1px solid rgba(201, 180, 154, 0.3);
+  animation: fadeUp 0.4s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.gecko-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.gecko-card.is-sold {
+  cursor: default;
+  opacity: 0.75;
+}
+
+.card-img-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  overflow: hidden;
+  background: var(--sand);
+}
+
+.card-img-wrap img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gecko-card:hover:not(.is-sold) .card-img-wrap img {
+  transform: scale(1.05);
+}
+
+.card-sold-overlay {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: var(--sold-overlay);
+  align-items: center;
+  justify-content: center;
+}
+
+.is-sold .card-sold-overlay {
+  display: flex;
+}
+
+.sold-stamp {
+  border: 3px solid #fff;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 8px 22px;
+  border-radius: 6px;
+  letter-spacing: 0.1em;
+  transform: rotate(-12deg);
+}
+
+.card-gender-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(6px);
+}
+
+.badge-male   { background: rgba(100, 160, 220, 0.85); color: #fff; }
+.badge-female { background: rgba(220, 130, 160, 0.85); color: #fff; }
+.badge-unknown { background: rgba(160, 160, 160, 0.75); color: #fff; }
+
+.card-body {
+  padding: 16px 18px 18px;
+}
+
+.card-morph {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--sage);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.card-name {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--dark-brown);
+  margin-bottom: 8px;
+}
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.card-tag {
+  font-size: 0.72rem;
+  background: var(--cream);
+  color: var(--text-mid);
+  padding: 3px 9px;
+  border-radius: 20px;
+  border: 1px solid var(--sand);
+}
+
+.card-price {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.card-price.sold-price {
+  color: var(--text-light);
+  text-decoration: line-through;
+  font-size: 0.9rem;
+}
+
+/* ── 빈 상태 ── */
+.empty-state {
+  text-align: center;
+  padding: 80px 24px;
+  color: var(--text-light);
+}
+
+.empty-icon { font-size: 3rem; display: block; margin-bottom: 16px; }
+.empty-state p { line-height: 1.8; font-size: 0.95rem; }
+
+/* ── 모달 ── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(44, 31, 18, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-overlay.open { display: flex; }
+
+.modal-box {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 540px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modalIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px; right: 14px;
+  z-index: 10;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.9);
+  color: var(--text-mid);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.modal-close:hover { background: var(--sand); }
+
+.modal-img-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 70%;
+  overflow: hidden;
+  background: var(--sand);
+}
+
+.modal-img-wrap img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-badge {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  background: rgba(255,255,255,0.9);
+  color: var(--forest);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 5px 13px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+}
+
+.modal-info {
+  padding: 24px 28px 28px;
+}
+
+.modal-name {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--dark-brown);
+  margin-bottom: 12px;
+}
+
+.modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 16px;
+}
+
+.modal-tag {
+  font-size: 0.78rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--sand);
+  color: var(--text-mid);
+  background: var(--cream);
+}
+
+.modal-tag.highlight {
+  background: var(--light-sage);
+  border-color: var(--sage);
+  color: var(--forest);
+}
+
+.modal-desc {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+  margin-bottom: 18px;
+  white-space: pre-line;
+}
+
+.modal-price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.modal-kakao {
+  width: 100%;
+  justify-content: center;
+  font-size: 1rem;
+  padding: 14px;
+}
+
+/* ── 페이지 히어로 (소개/분양완료) ── */
+.page-hero {
+  background: linear-gradient(135deg, #f5ede0, #e8f0e5);
+  padding: 56px 24px 44px;
+  text-align: center;
+}
+
+.page-title {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--dark-brown);
+  margin-bottom: 8px;
+}
+
+.page-desc {
+  color: var(--text-mid);
+  font-size: 0.95rem;
+}
+
+/* ── 소개 페이지 ── */
+.about-section {
+  max-width: 860px;
+  margin: 60px auto;
+  padding: 0 24px 80px;
+}
+
+.about-inner {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.about-logo-wrap { text-align: center; }
+
+.about-logo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--light-sage);
+  box-shadow: var(--shadow);
+}
+
+.about-title {
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--dark-brown);
+  line-height: 1.4;
+  margin-bottom: 18px;
+}
+
+.about-text {
+  font-size: 0.93rem;
+  color: var(--text-mid);
+  line-height: 1.9;
+  margin-bottom: 32px;
+}
+
+.about-points {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+.about-point {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.point-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.about-point strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--dark-brown);
+  margin-bottom: 2px;
+}
+
+.about-point p {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  line-height: 1.6;
+}
+
+/* ── 분양완료 그리드 ── */
+.sold-grid .gecko-card { opacity: 0.8; }
+
+/* ── 푸터 ── */
+.site-footer {
+  background: var(--dark-brown);
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 28px 24px;
+  font-size: 0.83rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.site-footer a {
+  color: var(--accent-light);
+  text-decoration: none;
+  font-size: 0.83rem;
+}
+
+.site-footer a:hover { color: #fff; }
+
+/* ── 반응형 ── */
+@media (max-width: 700px) {
+  .about-inner { grid-template-columns: 1fr; gap: 30px; }
+  .about-logo-wrap { display: none; }
+  .header-nav .nav-link { display: none; }
+  .gecko-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; padding: 0 16px 40px; }
+  .modal-info { padding: 18px 20px 24px; }
+}
+
+@media (max-width: 400px) {
+  .gecko-grid { grid-template-columns: 1fr; }
+}
