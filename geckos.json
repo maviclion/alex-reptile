@@ -8,9 +8,8 @@
     "hatch": "",
     "price": 100000,
     "desc": "차분하고 순한 성격의 달마시안 암컷입니다. 핸들링에 잘 적응되어 있어요.",
-    "photos": [
-      "https://res.cloudinary.com/dzmd8kwjb/image/upload/q_auto/f_auto/v1776312496/20251103_200541_pjf6ck.jpg"
-    ],
+    "folder": "moca",
+    "photoCount": 1,
     "sold": false
   },
   {
@@ -22,9 +21,8 @@
     "hatch": "",
     "price": 200000,
     "desc": "선명한 트라이컬러 패턴이 매력적인 암컷입니다. 식욕이 왕성하고 건강합니다.",
-    "photos": [
-      "https://res.cloudinary.com/dzmd8kwjb/image/upload/q_auto/f_auto/v1776312496/20251101_164159_sxjn3q.jpg"
-    ],
+    "folder": "ria",
+    "photoCount": 1,
     "sold": false
   },
   {
@@ -36,9 +34,8 @@
     "hatch": "",
     "price": null,
     "desc": "깊고 진한 레드 컬러가 아름다운 암컷입니다. 이름처럼 벨벳처럼 부드러운 느낌의 개체예요.",
-    "photos": [
-      "https://res.cloudinary.com/dzmd8kwjb/image/upload/q_auto/f_auto/v1776312496/20251101_172301_j37r4v.jpg"
-    ],
+    "folder": "velvet",
+    "photoCount": 1,
     "sold": false
   }
 ]
