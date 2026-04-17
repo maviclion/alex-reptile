@@ -34,17 +34,7 @@ body {
   min-height: 100vh;
 }
 
-/* ── 법적 고지 배너 ── */
-.notice-banner {
-  background: #fef9ed;
-  border-bottom: 1px solid #e8d99a;
-  padding: 10px 24px;
-  text-align: center;
-  font-size: 13px;
-  color: #7a5c1a;
-  line-height: 1.6;
-}
-.notice-banner strong { font-weight: 700; color: #5c4010; }
+
 
 /* ── 헤더 ── */
 .site-header {
@@ -82,24 +72,7 @@ body {
 .hero-title { font-family: 'Nanum Myeongjo', serif; font-size: clamp(2rem, 6vw, 3.2rem); font-weight: 800; color: var(--dark-brown); line-height: 1.25; margin-bottom: 18px; }
 .hero-desc { font-size: 0.95rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 24px; }
 
-/* ── 법적 안내 박스 (히어로 내) ── */
-.legal-notice-box {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  background: rgba(255,255,255,0.7);
-  border: 1px solid #e8d99a;
-  border-radius: 12px;
-  padding: 16px 20px;
-  margin-bottom: 28px;
-  text-align: left;
-  backdrop-filter: blur(4px);
-}
-.legal-notice-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 1px; }
-.legal-notice-box strong { display: block; font-size: 0.88rem; color: #5c4010; font-weight: 700; margin-bottom: 4px; }
-.legal-notice-box p { font-size: 0.82rem; color: #7a5c1a; line-height: 1.6; }
-.legal-notice-box a { color: var(--forest); font-weight: 600; text-decoration: none; }
-.legal-notice-box a:hover { text-decoration: underline; }
+
 
 .btn-kakao { display: inline-flex; align-items: center; gap: 8px; background: #FAE100; color: #3A1D1D; font-weight: 700; font-size: 0.95rem; padding: 13px 28px; border-radius: 50px; text-decoration: none; transition: all 0.25s; box-shadow: 0 4px 16px rgba(250, 225, 0, 0.35); }
 .btn-kakao:hover { background: #f0d400; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(250, 225, 0, 0.45); }
@@ -267,19 +240,7 @@ body {
 .about-point strong { display: block; font-size: 0.95rem; color: var(--dark-brown); margin-bottom: 2px; }
 .about-point p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; }
 
-/* 소개 페이지 법적 고지 박스 */
-.about-legal { margin-bottom: 32px; }
-.about-legal-title { font-size: 1rem; font-weight: 700; color: #5c4010; margin-bottom: 12px; }
-.about-legal-box {
-  background: #fef9ed;
-  border: 1px solid #e8d99a;
-  border-radius: 12px;
-  padding: 18px 22px;
-}
-.about-legal-box p { font-size: 0.88rem; color: #5c4010; margin-bottom: 10px; line-height: 1.7; }
-.about-legal-box ul { padding-left: 18px; }
-.about-legal-box li { font-size: 0.85rem; color: #7a5c1a; line-height: 1.8; }
-.about-legal-box strong { font-weight: 700; }
+
 
 /* ── 분양완료 ── */
 .sold-grid .gecko-card { opacity: 0.8; }
@@ -288,7 +249,7 @@ body {
 .site-footer { background: var(--dark-brown); color: rgba(255,255,255,0.6); text-align: center; padding: 28px 24px; font-size: 0.83rem; display: flex; flex-direction: column; gap: 8px; align-items: center; }
 .site-footer a { color: var(--accent-light); text-decoration: none; font-size: 0.83rem; }
 .site-footer a:hover { color: #fff; }
-.footer-legal { font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 4px; }
+.footer-legal { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 8px; line-height: 1.7; }
 
 /* ── 반응형 ── */
 @media (max-width: 700px) {
