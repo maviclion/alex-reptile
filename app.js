@@ -27,7 +27,8 @@ const KAKAO_URL = 'https://open.kakao.com/o/sA5iVCEg';
  */
 function cloudinaryUrl(folder, num, transform = '') {
   // 번호를 2자리로 맞춤 (1 → "01", 10 → "10")
-  const filename = String(num).padStart(2, '0') + '.jpg';
+  // Cloudinary Public ID에는 확장자를 붙이지 않음 (Cloudinary가 자동 처리)
+  const filename = String(num).padStart(2, '0');
   const path = `${GECKO_FOLDER}/${folder}/${filename}`;
 
   if (transform) {
