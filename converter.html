@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gecko JSON 변환기</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: sans-serif; background: #f5f5f5; color: #222; padding: 2rem; }
+  h1 { font-size: 1.3rem; font-weight: 500; margin-bottom: 0.5rem; }
+  p { font-size: 0.9rem; color: #666; margin-bottom: 1.5rem; }
+  .drop-zone {
+    border: 2px dashed #ccc; border-radius: 12px; padding: 3rem 1rem;
+    text-align: center; cursor: pointer; background: #fff;
+    transition: background 0.15s; margin-bottom: 1rem;
+  }
+  .drop-zone.drag-over { background: #e8f4ff; border-color: #4a90d9; }
+  .drop-zone p { color: #888; margin-bottom: 0; }
+  .status { font-size: 0.9rem; margin-bottom: 1rem; }
+  .status.ok { color: #2a7a2a; }
+  .status.err { color: #c0392b; }
+  .btn-row { display: flex; gap: 8px; margin-bottom: 1rem; flex-wrap: wrap; }
+  button {
+    padding: 8px 16px; border: 1px solid #ccc; border-radius: 8px;
+    background: #fff; cursor: pointer; font-size: 0.9rem;
+  }
+  button:hover { background: #f0f0f0; }
+  .json-box {
+    background: #1e1e1e; color: #d4d4d4; border-radius: 8px;
+    padding: 1rem; font-family: monospace; font-size: 12px;
+    white-space: pre-wrap; max-height: 500px; overflow-y: auto;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 1rem; background: #fff; border-radius: 8px; overflow: hidden; }
+  th { background: #f0f0f0; padding: 8px 12px; text-align: left; border-bottom: 1px solid #ddd; }
+  td { padding: 8px 12px; border-bottom: 1px solid #eee; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .guide { background: #fff; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #eee; }
+  .guide h2 { font-size: 1rem; font-weight: 500; margin-bottom: 0.75rem; }
+  .guide table { margin-bottom: 0; }
+  .guide td, .guide th { font-size: 12px; }
+</style>
+</head>
+<body>
+
+<h1>🦎 Gecko JSON 변환기</h1>
+<p>엑셀 파일을 올리면 geckos.json 파일로 자동 변환해드려요.</p>
+
+<div class="guide">
+  <h2>엑셀 열 순서</h2>
+  <table>
+    <tr>
+      <th>name</th><th>morph</th><th>gender</th><th>hatch</th><th>weight</th>
+      <th>price</th><th>photo1</th><th>photo2</th><th>photo3</th><th>sold</th><th>desc</th>
+    </tr>
+    <tr>
+      <td>RH001</td><td>트라이컬러</td><td>unknown</td><td>25.08.04</td><td>5g</td>
+      <td>100000</td><td>https://...</td><td></td><td></td><td>false</td><td>설명</td>
+    </tr>
+  </table>
+  <p style="margin-top:0.75rem; margin-bottom:0; font-size:12px; color:#888;">
+    gender: male / female / unknown &nbsp;|&nbsp; price: 숫자만, 문의면 빈칸 &nbsp;|&nbsp; sold: true / false
+  </p>
+</div>
+
+<div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+  <div style="font-size:2rem; margin-bottom:0.5rem;">📂</div>
+  <p>엑셀 파일을 여기에 끌어다 놓거나 클릭해서 선택하세요</p>
+  <p style="font-size:12px; margin-top:4px;">.xlsx, .xls 파일 지원</p>
+</div>
+<input type="file" id="fileInput" accept=".xlsx,.xls" style="display:none">
+
+<div class="status" id="status"></div>
+<div id="previewWrap" style="display:none; overflow-x:auto;"></div>
+<div id="resultWrap" style="display:none;">
+  <div class="btn-row">
+    <button id="copyBtn">📋 JSON 복사</button>
+    <button id="downloadBtn">⬇️ geckos.json 다운로드</button>
+  </div>
+  <div class="json-box" id="jsonBox"></div>
+</div>
+
+<script>
+const dropZone = document.getElementById('dropZone');
+const fileInput = document.getElementById('fileInput');
+const status = document.getElementById('status');
+
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+dropZone.addEventListener('drop', e => { e.preventDefault(); dropZone.classList.remove('drag-over'); handleFile(e.dataTransfer.files[0]); });
+fileInput.addEventListener('change', e => handleFile(e.target.files[0]));
+
+function handleFile(file) {
+  if (!file) return;
+  status.className = 'status';
+  status.textContent = '읽는 중...';
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const wb = XLSX.read(e.target.result, { type: 'array' });
+      const ws = wb.Sheets[wb.SheetNames[0]];
+      const rows = XLSX.utils.sheet_to_json(ws, { defval: '' });
+      if (!rows.length) { status.className='status err'; status.textContent='데이터가 없어요.'; return; }
+      renderPreview(rows);
+      const json = convertToGeckos(rows);
+      renderResult(json);
+      status.className='status ok';
+      status.textContent=`✅ ${rows.length}마리 변환 완료!`;
+    } catch(err) {
+      status.className='status err';
+      status.textContent='오류: ' + err.message;
+    }
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+function renderPreview(rows) {
+  const cols = Object.keys(rows[0]);
+  let html = '<p style="font-size:13px;color:#666;margin-bottom:6px;">미리보기 (최대 5행)</p><table><thead><tr>';
+  html += cols.map(c=>`<th>${c}</th>`).join('');
+  html += '</tr></thead><tbody>';
+  rows.slice(0,5).forEach(row => {
+    html += '<tr>' + cols.map(c=>`<td title="${row[c]}">${row[c]}</td>`).join('') + '</tr>';
+  });
+  html += '</tbody></table>';
+  const wrap = document.getElementById('previewWrap');
+  wrap.innerHTML = html;
+  wrap.style.display = 'block';
+}
+
+function convertToGeckos(rows) {
+  return rows.map(row => {
+    const photos = [];
+    ['photo1','photo2','photo3','photo4','photo5'].forEach(k => {
+      if (row[k] && String(row[k]).trim()) photos.push(String(row[k]).trim());
+    });
+    const price = (row['price'] !== '' && row['price'] !== null && row['price'] !== undefined)
+      ? Number(row['price']) : null;
+    return {
+      name:   String(row['name'] || '').trim(),
+      morph:  String(row['morph'] || '').trim(),
+      gender: String(row['gender'] || 'unknown').trim(),
+      hatch:  String(row['hatch'] || '').trim(),
+      weight: String(row['weight'] || '').trim(),
+      price:  isNaN(price) ? null : price,
+      photos: photos,
+      sold:   String(row['sold']).toLowerCase() === 'true',
+      desc:   String(row['desc'] || '').trim(),
+    };
+  });
+}
+
+function renderResult(json) {
+  const jsonStr = JSON.stringify(json, null, 2);
+  document.getElementById('jsonBox').textContent = jsonStr;
+  document.getElementById('resultWrap').style.display = 'block';
+  document.getElementById('copyBtn').onclick = () => {
+    navigator.clipboard.writeText(jsonStr);
+    document.getElementById('copyBtn').textContent = '✅ 복사됨!';
+    setTimeout(() => document.getElementById('copyBtn').textContent = '📋 JSON 복사', 1500);
+  };
+  document.getElementById('downloadBtn').onclick = () => {
+    const blob = new Blob([jsonStr], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'geckos.json';
+    a.click();
+  };
+}
+</script>
+</body>
+</html>
