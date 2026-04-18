@@ -38,4 +38,17 @@
     "photoCount": 1,
     "sold": false
   }
+{
+    "name": "크림2세",
+    "morph": "화이트릴리",
+    "gender": "미구분",
+    "age": "25.08.04",
+    "weight": "5g",
+    "hatch": "",
+    "price": 100000,
+    "desc": "순백의 화이트 릴리입니다. 아빠를 닮아서 누대가 좋을것으로 예상되네요.",
+    "folder": "CR001",
+    "photoCount": 2,
+    "sold": false
+  }
 ]
