@@ -1,17 +1,17 @@
 [
-{
-  "name": "RH001",
-  "morph": "트익할",
-  "gender": "unknown",
-  "age": "",
-  "weight": "",
-  "hatch": "",
-  "price": null,
-  "desc": "",
-  "photos": [
-    "https://res.cloudinary.com/dzmd8kwjb/image/upload/v1776552364/RH001_01.jpg",
-    "https://res.cloudinary.com/dzmd8kwjb/image/upload/v1776552366/RH001_02.jpg"
-  ],
-  "sold": false
-}
+  {
+    "name": "RH001",
+    "morph": "트라이컬러",
+    "gender": "unknown",
+    "age": "",
+    "weight": "",
+    "hatch": "",
+    "price": null,
+    "desc": "",
+    "photos": [
+      "https://res.cloudinary.com/dzmd8kwjb/image/upload/v1776552364/RH001_01.jpg",
+      "https://res.cloudinary.com/dzmd8kwjb/image/upload/v1776552366/RH001_02.jpg"
+    ],
+    "sold": false
+  }
 ]
