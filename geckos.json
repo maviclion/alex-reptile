@@ -46,7 +46,7 @@
     "gender": "unknown",
     "hatch": "25.08.23",
     "weight": "",
-    "price": 20000,
+    "price": 10000,
     "photos": [
       "https://res.cloudinary.com/dzmd8kwjb/image/upload/v1776575226/NRA003_01_qkjdl7.jpg",
       "https://res.cloudinary.com/dzmd8kwjb/image/upload/v1776575226/NRA003_02_pfew3e.jpg"
@@ -116,7 +116,7 @@
     "gender": "unknown",
     "hatch": "26.02.20",
     "weight": "",
-    "price": 10000,
+    "price": 20000,
     "photos": [
       "https://res.cloudinary.com/dzmd8kwjb/image/upload/v1776575228/NRI003_01_ncqvyn.jpg",
       "https://res.cloudinary.com/dzmd8kwjb/image/upload/v1776575227/NRI003_02_cyo6sl.jpg"
